@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        
+        a:visited{
+            color: red;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h1>Geeksforgeeks Content bot</h1>
+
+    <h3>Currently Checking</h3>
+    <p class="current_checking" style="border: 2px solid; padding: 10px;"></p>
+
+
+    <h3>Available Links :</h3>
+    <ol class="linklist"></ol>
+
+    <h3>Already Completed Links :</h3>
+    <ol class="already_added"></ol>
+
+    
+
+    <script src = "socket.io.js"></script>
+    <script>
+        let socket = io()
+        socket.on("printlink", (data)=>{
+            let linklist = document.querySelector(".linklist")
+            let list = document.createElement("li")
+            let a = document.createElement("a")
+            a.href = data.link
+            a.innerText = data.link
+            linklist.appendChild(list).appendChild(a)
+        })
+
+        socket.on("printPageLinks", (data) => {
+            console.log(data.pageLinks)
+        })
+
+        socket.on("js_already_added", (data)=>{
+            let already_added = document.querySelector(".already_added")
+            let list = document.createElement("li")
+            let a = document.createElement("a")
+            a.href = data.link
+            a.innerText = data.link
+            already_added.appendChild(list).appendChild(a)
+        })
+
+        socket.on("current_checking", (data)=>{
+            let para = document.querySelector(".current_checking");
+            let list = document.createElement("li")
+            let a = document.createElement("a")
+            a.href = data.link
+            a.innerText = data.link
+            para.appendChild(list).appendChild(a)
+        })
+    </script>
+</body>
+
+</html>
