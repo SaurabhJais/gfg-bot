@@ -2,7 +2,6 @@ let express = require("express")
 let app = express()
 let calcLinks = require("./bot")
 let path = require("path")
-const { Socket } = require("dgram")
 let http = require("http").Server(app)
 let io = require("socket.io")(http)
 
@@ -14,7 +13,7 @@ app.use(express.static(path.join(__dirname, "/node_modules/socket.io/client-dist
 
 
 app.get("/", (req, res) => {
-    calcLinks(155, 156, io);
+    calcLinks(167, 168, io);
     res.render("home")
 })
 

@@ -59,11 +59,10 @@
 
         socket.on("current_checking", (data)=>{
             let para = document.querySelector(".current_checking");
-            let list = document.createElement("li")
             let a = document.createElement("a")
             a.href = data.link
             a.innerText = data.link
-            para.appendChild(list).appendChild(a)
+            para.innerHTML = a
         })
     </script>
 </body>
