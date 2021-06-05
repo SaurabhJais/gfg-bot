@@ -5,7 +5,7 @@ let path = require("path")
 let http = require("http").Server(app)
 let io = require("socket.io")(http)
 
-app.set("view engine", "ejs")
+app.set("view engine", "ejs" )
 app.use(express.static("public"))
 app.use(express.static(path.join(__dirname, "/node_modules/socket.io/client-dist/")))
 
