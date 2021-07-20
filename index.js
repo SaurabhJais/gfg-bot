@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "/node_modules/socket.io/client-dist
 
 
 app.get("/", (req, res) => {
-    calcLinks(167, 168, io);
+    calcLinks(2, 5, io);
     res.render("home")
 })
 

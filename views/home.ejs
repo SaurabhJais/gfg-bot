@@ -40,6 +40,7 @@
             let list = document.createElement("li")
             let a = document.createElement("a")
             a.href = data.link
+            a.target = "blank"
             a.innerText = data.link
             linklist.appendChild(list).appendChild(a)
         })
@@ -53,6 +54,7 @@
             let list = document.createElement("li")
             let a = document.createElement("a")
             a.href = data.link
+            a.target = "_blank"
             a.innerText = data.link
             already_added.appendChild(list).appendChild(a)
         })
@@ -61,6 +63,7 @@
             let para = document.querySelector(".current_checking");
             let a = document.createElement("a")
             a.href = data.link
+            a.target = "blank"
             a.innerText = data.link
             para.innerHTML = a
         })
